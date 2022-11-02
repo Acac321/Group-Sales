@@ -1,5 +1,5 @@
 const EventEmitter = require('events')
-const RWare = new EventEmitter()
+const baller = new EventEmitter()
 
 const Cookie = ""
 const GroupID = ""
@@ -8,14 +8,14 @@ const Status = Login(Cookie, GroupID)
 console.log(Status)
 
 
-RWare.on('sales', async (data) => {
+baller.on('sales', async (data) => {
     const username = data["agent"]["name"]
     const userid = data["agent"]["id"]
     const productprice = data["currency"]["amount"]
     const productname = data["details"]["name"]
 })
 
-RWare.on('error', async (err) => {
+baller.on('error', async (err) => {
     if (err) {} // Do Not Touch Or A Huge Ass Error Will Show
 })
 
@@ -1036,13 +1036,13 @@ const interval = setInterval(async function() {
         
         if (old.length !== 0) {
             if (!old.includes(sales.created)) {
-                RWare.emit("sales", sales)
+                baller.emit("sales", sales)
                 old.push(sales.created)
             }
         } else if (old.length === 0) {
             old.push(sales.created)
         }
     } catch (err) {
-        RWare.emit("error", err)
+        baller.emit("error", err)
     }
 }, 1000)
