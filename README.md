@@ -7,12 +7,4 @@ npm i node-fetch
 npm i discord.js@13 // For Webhook
 ```
 
-```
-Green: Working
-Red: Error / Bugs
-Yellow: On Fix / Test
-
-Status: 🟢
-```
-
 **Credit me if you want**
